@@ -1,0 +1,78 @@
+//toplevel for emulated eeprom project
+//maps data address and control signal from eeprom emulated into hardware pin
+//targetting AT28BV256
+//cmd to test reading "minipro -p AT28BV256 -r ./a.bin"
+/*28-Lead PDIP/SOIC pinout
+     __________
+A14 -|1*    28|- VCC
+A12 -|2     27|- WE
+A7  -|3     26|- A13
+A6  -|4     25|- A8
+A5  -|5     24|- A9
+A4  -|6     23|- A11
+A3  -|7     22|- OE
+A2  -|8     21|- A10
+A1  -|9     20|- CE
+A0  -|10    19|- IO7
+IO0 -|11    18|- IO6
+IO1 -|12    17|- IO5
+IO2 -|13    16|- IO4
+GND -|14____15|- IO3
+
+------
+GPIO pin number directly correspond to IC pin
+*/   
+/* total 26 digital IO needed 3.3v logic level : can connect directly to Terasic DE10-Lite
+   A0~A14 address input
+   IO0~IO7 8 bit parallel data out
+   /CE chip enale input active low
+   /OE output enable input active low
+   /WE write enable active low
+  
+   VCC power supply 3.3v 
+   VSS ground 0v
+*/ 
+
+/* -------- optional extra features ---------
+   software erase routine
+      The entire device can be erased at one
+      time by using a 6-byte software code.
+      The software chip erase code consists of
+      6- byte load commands to specific
+      address locations with specific data pat-
+      terns. Once the code has been entered,
+      the device will set each byte to the high
+      state (FFH). After the software chip
+      erase has been initiated, the device will
+      internally time the erase operation so
+      that no external clocks are required. The
+      maximum time required to erase the
+      whole chip is t_EC (20 ms). The software
+      data protection is still enabled even after
+      the software chip erase is performed.
+         * load 0xAA to address 0x5555
+         * load 0x55 to address 0x2AAA
+         * load 0x80 to address 0x5555
+         * load 0xAA to address 0x5555
+         * load 0x55 to address 0x2AAA
+         * load 0x10 to address 0x5555
+   support programming/writing
+   software WP 
+*/
+module eeprom_toplevel (input logic [14:0]ADDR, 
+                        input logic CE, OE, WE, 
+                        output logic [7:0]data_out);
+    //use the character rom from text vga MP to test for cp1 
+    logic [7:0]data;
+    font_rom(.addr(ADDR[10:0]), .data(data));
+    always_comb begin : dataout
+        if(OE | CE) data_out <= 8'bzzzzzzzz; //activelow chip enable output enable
+        else if(ADDR[14:11]) data_out <=8'hee; // test data for beyond font rom address
+		  else data_out <= data; 
+
+       // if(!WE & OE & !CE) begin //write
+    end
+   //  always_comb begin : datain
+   //    if(!WE & OE & !CE)
+   //  end
+endmodule

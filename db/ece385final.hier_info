@@ -1,0 +1,195 @@
+|AT28BV256_toplevel
+ADDR[0] => ADDR[0].IN2
+ADDR[1] => ADDR[1].IN2
+ADDR[2] => ADDR[2].IN2
+ADDR[3] => ADDR[3].IN2
+ADDR[4] => ADDR[4].IN2
+ADDR[5] => ADDR[5].IN2
+ADDR[6] => ADDR[6].IN2
+ADDR[7] => ADDR[7].IN2
+ADDR[8] => ADDR[8].IN2
+ADDR[9] => ADDR[9].IN2
+ADDR[10] => ADDR[10].IN2
+ADDR[11] => ADDR[11].IN1
+ADDR[12] => ADDR[12].IN1
+ADDR[13] => ADDR[13].IN1
+ADDR[14] => ADDR[14].IN1
+CE => always1.IN0
+OE => always1.IN1
+WE => ~NO_FANOUT~
+SW[0] => memdata[7].OUTPUTSELECT
+SW[0] => memdata[6].OUTPUTSELECT
+SW[0] => memdata[5].OUTPUTSELECT
+SW[0] => memdata[4].OUTPUTSELECT
+SW[0] => memdata[3].OUTPUTSELECT
+SW[0] => memdata[2].OUTPUTSELECT
+SW[0] => memdata[1].OUTPUTSELECT
+SW[0] => memdata[0].OUTPUTSELECT
+SW[0] => always1.IN0
+SW[1] => ~NO_FANOUT~
+SW[2] => ~NO_FANOUT~
+SW[3] => ~NO_FANOUT~
+SW[4] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[6] => ~NO_FANOUT~
+SW[7] => ~NO_FANOUT~
+SW[8] => ~NO_FANOUT~
+SW[9] => ~NO_FANOUT~
+IO[0] <= IO[0].DB_MAX_OUTPUT_PORT_TYPE
+IO[1] <= IO[1].DB_MAX_OUTPUT_PORT_TYPE
+IO[2] <= IO[2].DB_MAX_OUTPUT_PORT_TYPE
+IO[3] <= IO[3].DB_MAX_OUTPUT_PORT_TYPE
+IO[4] <= IO[4].DB_MAX_OUTPUT_PORT_TYPE
+IO[5] <= IO[5].DB_MAX_OUTPUT_PORT_TYPE
+IO[6] <= IO[6].DB_MAX_OUTPUT_PORT_TYPE
+IO[7] <= IO[7].DB_MAX_OUTPUT_PORT_TYPE
+HEX0[0] <= HexDriver:addrhexdisp0.port1
+HEX0[1] <= HexDriver:addrhexdisp0.port1
+HEX0[2] <= HexDriver:addrhexdisp0.port1
+HEX0[3] <= HexDriver:addrhexdisp0.port1
+HEX0[4] <= HexDriver:addrhexdisp0.port1
+HEX0[5] <= HexDriver:addrhexdisp0.port1
+HEX0[6] <= HexDriver:addrhexdisp0.port1
+HEX1[0] <= HexDriver:addrhexdisp1.port1
+HEX1[1] <= HexDriver:addrhexdisp1.port1
+HEX1[2] <= HexDriver:addrhexdisp1.port1
+HEX1[3] <= HexDriver:addrhexdisp1.port1
+HEX1[4] <= HexDriver:addrhexdisp1.port1
+HEX1[5] <= HexDriver:addrhexdisp1.port1
+HEX1[6] <= HexDriver:addrhexdisp1.port1
+HEX2[0] <= HexDriver:addrhexdisp2.port1
+HEX2[1] <= HexDriver:addrhexdisp2.port1
+HEX2[2] <= HexDriver:addrhexdisp2.port1
+HEX2[3] <= HexDriver:addrhexdisp2.port1
+HEX2[4] <= HexDriver:addrhexdisp2.port1
+HEX2[5] <= HexDriver:addrhexdisp2.port1
+HEX2[6] <= HexDriver:addrhexdisp2.port1
+HEX3[0] <= HexDriver:addrhexdisp3.port1
+HEX3[1] <= HexDriver:addrhexdisp3.port1
+HEX3[2] <= HexDriver:addrhexdisp3.port1
+HEX3[3] <= HexDriver:addrhexdisp3.port1
+HEX3[4] <= HexDriver:addrhexdisp3.port1
+HEX3[5] <= HexDriver:addrhexdisp3.port1
+HEX3[6] <= HexDriver:addrhexdisp3.port1
+HEX4[0] <= HexDriver:datahexdisp0.port1
+HEX4[1] <= HexDriver:datahexdisp0.port1
+HEX4[2] <= HexDriver:datahexdisp0.port1
+HEX4[3] <= HexDriver:datahexdisp0.port1
+HEX4[4] <= HexDriver:datahexdisp0.port1
+HEX4[5] <= HexDriver:datahexdisp0.port1
+HEX4[6] <= HexDriver:datahexdisp0.port1
+HEX5[0] <= HexDriver:datahexdisp1.port1
+HEX5[1] <= HexDriver:datahexdisp1.port1
+HEX5[2] <= HexDriver:datahexdisp1.port1
+HEX5[3] <= HexDriver:datahexdisp1.port1
+HEX5[4] <= HexDriver:datahexdisp1.port1
+HEX5[5] <= HexDriver:datahexdisp1.port1
+HEX5[6] <= HexDriver:datahexdisp1.port1
+
+
+|AT28BV256_toplevel|HexDriver:addrhexdisp3
+In0[0] => Decoder0.IN3
+In0[1] => Decoder0.IN2
+In0[2] => Decoder0.IN1
+In0[3] => Decoder0.IN0
+Out0[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+Out0[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+Out0[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+Out0[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+Out0[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+Out0[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+Out0[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|AT28BV256_toplevel|HexDriver:addrhexdisp2
+In0[0] => Decoder0.IN3
+In0[1] => Decoder0.IN2
+In0[2] => Decoder0.IN1
+In0[3] => Decoder0.IN0
+Out0[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+Out0[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+Out0[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+Out0[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+Out0[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+Out0[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+Out0[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|AT28BV256_toplevel|HexDriver:addrhexdisp1
+In0[0] => Decoder0.IN3
+In0[1] => Decoder0.IN2
+In0[2] => Decoder0.IN1
+In0[3] => Decoder0.IN0
+Out0[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+Out0[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+Out0[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+Out0[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+Out0[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+Out0[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+Out0[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|AT28BV256_toplevel|HexDriver:addrhexdisp0
+In0[0] => Decoder0.IN3
+In0[1] => Decoder0.IN2
+In0[2] => Decoder0.IN1
+In0[3] => Decoder0.IN0
+Out0[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+Out0[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+Out0[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+Out0[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+Out0[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+Out0[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+Out0[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|AT28BV256_toplevel|HexDriver:datahexdisp0
+In0[0] => Decoder0.IN3
+In0[1] => Decoder0.IN2
+In0[2] => Decoder0.IN1
+In0[3] => Decoder0.IN0
+Out0[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+Out0[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+Out0[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+Out0[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+Out0[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+Out0[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+Out0[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|AT28BV256_toplevel|HexDriver:datahexdisp1
+In0[0] => Decoder0.IN3
+In0[1] => Decoder0.IN2
+In0[2] => Decoder0.IN1
+In0[3] => Decoder0.IN0
+Out0[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+Out0[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+Out0[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+Out0[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+Out0[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+Out0[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+Out0[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|AT28BV256_toplevel|font_rom:rom1
+addr[0] => Decoder0.IN10
+addr[1] => Decoder0.IN9
+addr[2] => Decoder0.IN8
+addr[3] => Decoder0.IN7
+addr[4] => Decoder0.IN6
+addr[5] => Decoder0.IN5
+addr[6] => Decoder0.IN4
+addr[7] => Decoder0.IN3
+addr[8] => Decoder0.IN2
+addr[9] => Decoder0.IN1
+addr[10] => Decoder0.IN0
+data[0] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
+data[1] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+data[2] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+data[3] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+data[4] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+data[5] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+data[6] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+data[7] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+

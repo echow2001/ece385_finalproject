@@ -1,0 +1,13 @@
+////memory contents: to be filled in later. hard code to test data for cp1. 
+module font_rom ( input logic [10:0]	addr,
+				  output logic [7:0]	data
+					 );
+
+	parameter ADDR_WIDTH = 14;
+    parameter DATA_WIDTH =  8;
+    logic [ADDR_WIDTH-1:0] addr_reg;
+
+
+	// assign data = ROM[addr];
+
+endmodule  

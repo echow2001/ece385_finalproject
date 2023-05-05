@@ -20,7 +20,7 @@ IO2 -|13    16|- IO4
 GND -|14____15|- IO3
 
 ------
-GPIO pin number directly correspond to IC pin, do NOT connected VCC pin
+GPIO pin number directly correspond to IC pin
 */   
 /* total 26 digital IO needed 3.3v logic level : can connect directly to Terasic DE10-Lite
    A0~A14 address input
@@ -59,37 +59,18 @@ GPIO pin number directly correspond to IC pin, do NOT connected VCC pin
    support programming/writing
    software WP 
 */
-module AT28BV256_toplevel (input logic [14:0]ADDR, 
+module eeprom_toplevel (input logic [14:0]ADDR, 
                         input logic CE, OE, WE, 
-								input logic SW[9:0], 
-                        output logic [7:0] IO, 
-								output logic [6:0] HEX0, HEX1, HEX2, HEX3, HEX4, HEX5);
-    logic [7:0] chardata, data, memdata; 
-	 logic [3:0] erasecounter; 
-	 HexDriver addrhexdisp3 (ADDR[14:12], HEX3);
-	 HexDriver addrhexdisp2 (ADDR[11:8], HEX2);
-	 HexDriver addrhexdisp1 (ADDR[7:4], HEX1);
-	 HexDriver addrhexdisp0 (ADDR[3:0], HEX0);
-	 
-	 HexDriver datahexdisp0 (IO[7:4], HEX4);
-	 HexDriver datahexdisp1 (IO[3:0], HEX5);
-    font_rom rom1(.addr(ADDR[10:0]), .data(chardata));     //use the character rom from text vga MP to test for cp1 
-	 //memory_contents rom0(.addr(ADDR[10:0]), .data(data));     
-	 assign data = 8'hff; 
-	 always_comb begin : data_selection
-		if(SW[0]) memdata <= chardata; 
-		else memdata <= data; 
-	 end
+                        output logic [7:0]data_out);
+    //use the character rom from text vga MP to test for cp1 
+    logic [7:0]data;
+    font_rom(.addr(ADDR[10:0]), .data(data));
     always_comb begin : dataout
-		if(OE | CE) IO <= 8'bzzzzzzzz; //activelow chip enable output enable
-		else if(ADDR[14:11] & SW[0]) IO <= {ADDR[7:0]}; // test data for beyond font rom address
-		else IO <= memdata; 
-		//if(!WE & OE & !CE) //begin //write
-//		if(erasecounter == 3'h6) begin
-//			
-//		end
+        if(OE | CE) data_out <= 8'bzzzzzzzz; //activelow chip enable output enable
+        else if(ADDR[14:11]) data_out <=8'hee; // test data for beyond font rom address
+		  else data_out <= data; 
+       // if(!WE & OE & !CE) begin //write
     end
-	 
    //  always_comb begin : datain
    //    if(!WE & OE & !CE)
    //  end
